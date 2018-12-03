@@ -1,0 +1,20 @@
+<html>
+<head>
+  <title>3-10 CSP</title>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  <meta http-equiv="Content-Security-Policy" content="connect-src 'self'; form-action 'self';">
+</head>
+<body>
+  <div>this is content</div>
+  <form action='https://www.baidu.com/' id="form" method="POST" enctype='multipart/form-data'>
+    <input type="submit">
+  </form>
+  <img src="http://www.baidu.com/img/superlogo_c4d7df0a003d3db9b65e9ef0fe6da1ec.png?qua=high&where=super">
+</body>
+<script>
+  console.log("this is a inline script")
+  fetch('http://baidu.com')
+</script>
+<script src="/test.js"></script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/core.js"></script>
+</html>

@@ -1,0 +1,26 @@
+<html>
+<head>
+  <title>4-2 Nginx代理配置和代理缓存的用处</title>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+</head>
+<body>
+<div>This is content,the data is <span id="data"></span></div>
+<button id="btn">click me</button>
+</body>
+<script type="text/javascript">
+  var index=0;
+  function doRequest(){
+    document.getElementById('data').innerText=''
+    fetch('/data',{
+      headers:{
+        'X-Text-Cache':index++
+      }
+    }).then((resp)=>{
+      return resp.text()
+    }).then((text)=>{
+      document.getElementById('data').innerText=text
+    })  
+  }
+  document.getElementById('btn').addEventListener('click',doRequest)
+</script>
+</html>
